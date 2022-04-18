@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Ultimate Mercer",
+    "avatar": "https://i.imgur.com/h4BIIOc.jpg",
+    "decks": [
+      {
+        "name": "SalamanAwesome",
+        "img": "https://i.imgur.com/G2ZqSZf.png"
+      },
+      {
+        "name": "Galaxy-Eyes Photon Dragon",
+        "img": "https://i.imgur.com/0qjoXC1.png"
+      },
+      {
+        "name": "Playmaker",
+        "img": "https://i.imgur.com/6sp3qJb.jpg"
+      },
+      {
+        "name": "Code Talker",
+        "img": "https://i.imgur.com/Py7OCLd.png"
+      },
+      {
+        "name": "RokketLoad",
+        "img": "https://i.imgur.com/z7ZuN6V.png"
+      },
+      {
+        "name": "Varis",
+        "img": "https://i.imgur.com/5rybJLP.png"
+      },
+      {
+        "name": "Soulburner",
+        "img": "https://i.imgur.com/iW68jLO.png"
+      },
+      {
+        "name": "Virtual World",
+        "img": "https://i.imgur.com/gtxR38h.jpg"
+      },
+      {
+        "name": "Resonator",
+        "img": "https://i.imgur.com/wPxOrm2.png"
+      },
+      {
+        "name": "Tri-brigade Zoodiac",
+        "img": "https://i.imgur.com/jYvshW5.png"
+      },
+      {
+        "name": "@Ignister",
+        "img": "https://i.imgur.com/WI2ons5.png"
+      }
+    ]
+  },
+  {
+    "name": "Arucard",
+    "avatar": "https://i.imgur.com/kLZpSGf.png",
+    "decks": [
+      {
+        "name": "True Draco",
+        "img": ""
+      },
+      {
+        "name": "Egyptian Gods",
+        "img": ""
+      },
+      {
+        "name": "Dragonmaid",
+        "img": ""
+      },
+      {
+        "name": "Relinquished",
+        "img": ""
+      },
+      {
+        "name": "Invoked Shaddoll Dogmatika",
+        "img": ""
+      }
+    ]
+  },
+  {
+    "name": "Tanuke Sensei",
+    "avatar": "https://i.imgur.com/s7jHEMX.jpg",
+    "decks": [
+      {
+        "name": "Virtual World",
+        "img": ""
+      },
+      {
+        "name": "Traptrix",
+        "img": ""
+      },
+      {
+        "name": "Penguim Deck",
+        "img": ""
+      },
+      {
+        "name": "Stardust Dragon",
+        "img": ""
+      },
+      {
+        "name": "PNC",
+        "img": ""
+      }
+    ]
+  }
+]
