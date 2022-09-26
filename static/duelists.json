@@ -24,20 +24,12 @@
         "img": "https://i.imgur.com/z7ZuN6V.png"
       },
       {
-        "name": "Varis",
-        "img": "https://i.imgur.com/5rybJLP.png"
+        "name": "Revolver",
+        "img": "https://i.imgur.com/zrCavQy.jpg"
       },
       {
         "name": "Soulburner",
         "img": "https://i.imgur.com/iW68jLO.png"
-      },
-      {
-        "name": "Virtual World",
-        "img": "https://i.imgur.com/gtxR38h.jpg"
-      },
-      {
-        "name": "Resonator",
-        "img": "https://i.imgur.com/wPxOrm2.png"
       },
       {
         "name": "Tri-brigade Zoodiac",
@@ -46,6 +38,18 @@
       {
         "name": "@Ignister",
         "img": "https://i.imgur.com/WI2ons5.png"
+      },
+      {
+        "name": "SalamanDPEAwesome",
+        "img": "https://i.imgur.com/RtBrTse.png"
+      },
+      {
+        "name": "Endymion",
+        "img": "https://i.imgur.com/tMWkF0m.png"
+      },
+      {
+        "name": "Zoodiac",
+        "img": "https://i.imgur.com/mHo2m6I.png"
       }
     ]
   },
@@ -55,23 +59,27 @@
     "decks": [
       {
         "name": "True Draco",
-        "img": ""
-      },
-      {
-        "name": "Egyptian Gods",
-        "img": ""
-      },
-      {
-        "name": "Dragonmaid",
-        "img": ""
+        "img": "https://i.imgur.com/P0q2aAe.png"
       },
       {
         "name": "Relinquished",
-        "img": ""
+        "img": "https://i.imgur.com/LIS8FcI.jpg"
       },
       {
         "name": "Invoked Shaddoll Dogmatika",
-        "img": ""
+        "img": "https://i.imgur.com/DAd0KgV.png"
+      },
+      {
+        "name": "Deuses Egipcios",
+        "img": "https://i.imgur.com/Su5spsg.png"
+      },
+      {
+        "name": "Phantasm Spyral",
+        "img": "https://i.imgur.com/Su5spsg.png"
+      },
+      {
+        "name": "Darklord",
+        "img": "https://i.imgur.com/Su5spsg.png"
       }
     ]
   },
@@ -81,23 +89,31 @@
     "decks": [
       {
         "name": "Virtual World",
-        "img": ""
+        "img": "https://i.imgur.com/gtxR38h.jpg"
       },
       {
         "name": "Traptrix",
-        "img": ""
+        "img": "https://i.imgur.com/VHNS5R0.png"
       },
       {
         "name": "Penguim Deck",
-        "img": ""
+        "img": "https://i.imgur.com/Z5DafIi.png"
       },
       {
         "name": "Stardust Dragon",
-        "img": ""
+        "img": "https://i.imgur.com/ruerOep.png"
       },
       {
         "name": "PNC",
         "img": ""
+      },
+      {
+        "name": "Ursarctic",
+        "img": "https://i.imgur.com/Cd1ZGXi.png"
+      },
+      {
+        "name": "Fluffal",
+        "img": "https://i.imgur.com/Cd1ZGXi.png"
       }
     ]
   }

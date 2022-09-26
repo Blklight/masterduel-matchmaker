@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid pb-5">
     <h1
       class="orbitron mt-3"
       :class="
@@ -11,22 +11,44 @@
       Master Duel - Matchmaker
     </h1>
 
-    <div class="duel-grid">
+    <div class="duel-grid pb-5">
       <div class="player-1">
-        <h2 class="orbitron text-center">
-          {{ duelistOne.name ? duelistOne.name : 'Duelista 1' }}
-        </h2>
+        <div class="d-flex align-items-center justify-content-center">
+          <h2 class="orbitron text-center">
+            {{ duelistOne.name ? duelistOne.name : 'Duelista 1' }}
+          </h2>
+          <div class="">
+            <button
+              class="btn btn-raised rounded-circle py-1 px-2 mx-2"
+              :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
+              @click="getDuelistOne(duelists)"
+            >
+              <font-awesome-icon :icon="['fas', 'rotate']" />
+            </button>
+          </div>
+        </div>
+
         <img
           :src="
             duelistOne.avatar
               ? duelistOne.avatar
               : 'https://i.imgur.com/L6kUdv4.jpg'
           "
-          class="duelist-avatar mb-3"
+          class="duelist-avatar shadow mb-3"
           alt=""
         />
-
-        <h2 class="orbitron text-center">Decks</h2>
+        <div class="d-flex justify-content-center align-items-center">
+          <h2 class="orbitron text-center">Decks</h2>
+          <div class="">
+            <button
+              class="btn btn-raised rounded-circle py-1 px-2 mx-2"
+              :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
+              @click="getDeckDuelistOne(duelistOne.decks)"
+            >
+              <font-awesome-icon :icon="['fas', 'rotate']" />
+            </button>
+          </div>
+        </div>
 
         <div class="px-4">
           <div
@@ -64,7 +86,7 @@
               </div>
 
               <div v-else>
-                <h3 class="orbitron text-light">Dead Space</h3>
+                <h3 class="orbitron text-light text-center">Decks</h3>
               </div>
             </div>
           </div>
@@ -78,41 +100,87 @@
         ></span>
       </div>
       <div class="player-2">
-        <h2 class="orbitron text-center">Duelista 2</h2>
+        <div class="d-flex align-items-center justify-content-center">
+          <h2 class="orbitron text-center">
+            {{ duelistTwo.name ? duelistTwo.name : 'Duelista 2' }}
+          </h2>
+          <div class="">
+            <button
+              class="btn btn-raised rounded-circle py-1 px-2 mx-2"
+              :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
+              @click="getDuelistTwo(duelists)"
+            >
+              <font-awesome-icon :icon="['fas', 'rotate']" />
+            </button>
+          </div>
+        </div>
         <img
-          src="https://i.imgur.com/To4RzjC.jpg"
-          class="duelist-avatar mb-3"
+          :src="
+            duelistTwo.avatar
+              ? duelistTwo.avatar
+              : 'https://i.imgur.com/L6kUdv4.jpg'
+          "
+          class="duelist-avatar shadow mb-3"
           alt=""
         />
-
-        <h2 class="orbitron text-center">Decks</h2>
+        <div class="d-flex justify-content-center align-items-center">
+          <h2 class="orbitron text-center">Decks</h2>
+          <div class="">
+            <button
+              class="btn btn-raised rounded-circle py-1 px-2 mx-2"
+              :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
+              @click="getDeckDuelistTwo(duelistTwo.decks)"
+            >
+              <font-awesome-icon :icon="['fas', 'rotate']" />
+            </button>
+          </div>
+        </div>
 
         <div class="px-4">
           <div
-            class="card card-raised card-background view-anchor mx-auto"
+            class="card card-raised card-background mx-auto view-anchor"
             style="max-width: 450px"
           >
             <img
-              src="https://i.imgur.com/L6kUdv4.jpg"
+              :src="
+                deckDuelistTwo.img
+                  ? deckDuelistTwo.img
+                  : 'https://i.imgur.com/L6kUdv4.jpg'
+              "
               class="card-background-image-featured"
               alt=""
             />
             <div class="mask pattern-1"></div>
-
             <div
-              class="card-img-overlay text-center d-flex flex-column justify-content-center"
+              class="card-img-overlay d-flex flex-column justify-content-center"
             >
-              <h3 class="orbitron text-light">Dead Space</h3>
+              <div v-if="deckDuelistTwo.name">
+                <h2 class="orbitron text-light text-center stroke">
+                  <strong>{{ deckDuelistTwo.name }}</strong>
+                </h2>
+              </div>
+              <div v-else-if="duelistTwo.decks" class="">
+                <p
+                  v-for="(deck, i) in duelistTwo.decks"
+                  :key="i"
+                  class="orbitron text-light"
+                >
+                  <strong>
+                    {{ deck.name }}
+                  </strong>
+                </p>
+              </div>
+
+              <div v-else>
+                <h3 class="orbitron text-light text-center">Decks</h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <pre>{{ duelistOne }}</pre>
-    <button class="" @click="getDeckDuelistOne(duelistOne.decks)">
-      random deck
-    </button>
+    <!-- <pre>{{ duelistOne }}</pre> -->
   </div>
 </template>
 
@@ -127,6 +195,8 @@ export default {
       duelists: dataDuelists,
       duelistOne: {},
       deckDuelistOne: {},
+      duelistTwo: {},
+      deckDuelistTwo: {},
     }
   },
   computed: {
@@ -134,23 +204,53 @@ export default {
   },
 
   mounted() {
-    this.getDuelistOne(this.duelists)
+    // this.getDuelistOne(this.duelists)
+    // this.getDuelistTwo(this.duelists)
   },
 
   methods: {
+    duelistRandomizer(duelists) {
+      return duelists[Math.floor(Math.random() * duelists.length)]
+    },
+
     getDuelistOne(duelists) {
-      const duelist = duelists.filter((obj) => obj.name === 'Ultimate Mercer')
-      this.duelistOne = {
-        ...duelist[0],
+      let duelist = this.duelistRandomizer(duelists)
+
+      if (duelist !== this.duelistTwo) {
+        this.duelistOne = duelist
+        return this.duelistOne
+      } else {
+        while (duelist === this.duelistTwo) {
+          duelist = this.duelistRandomizer(duelists)
+        }
+        return this.duelistOne
       }
-      console.log(this.duelistOne)
-      return this.duelistOne
     },
 
     getDeckDuelistOne(decks) {
       const randomDeck = decks[Math.floor(Math.random() * decks.length)]
       console.log(randomDeck)
       this.deckDuelistOne = randomDeck
+    },
+
+    getDuelistTwo(duelists) {
+      let duelist = this.duelistRandomizer(duelists)
+
+      if (duelist !== this.duelistOne) {
+        this.duelistTwo = duelist
+        return this.duelistTwo
+      } else {
+        while (duelist === this.duelistOne) {
+          duelist = this.duelistRandomizer(duelists)
+        }
+        return this.duelistTwo
+      }
+    },
+
+    getDeckDuelistTwo(decks) {
+      const randomDeck = decks[Math.floor(Math.random() * decks.length)]
+      console.log(randomDeck)
+      this.deckDuelistTwo = randomDeck
     },
   },
 }
@@ -199,8 +299,8 @@ export default {
 }
 
 .duelist-avatar {
-  width: 200px;
-  height: 200px;
+  width: 225px;
+  height: 225px;
   margin: 0 auto;
   display: block;
   object-fit: cover;
