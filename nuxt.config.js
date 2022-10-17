@@ -1,9 +1,9 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  router: {
-    base: '/masterduel-matchmaker/',
-  },
+  // router: {
+  //   base: '/masterduel-matchmaker/',
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

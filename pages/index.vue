@@ -214,17 +214,20 @@ export default {
     },
 
     getDuelistOne(duelists) {
-      let duelist = this.duelistRandomizer(duelists)
+      const duelist = this.duelistRandomizer(duelists)
 
-      if (duelist !== this.duelistTwo) {
-        this.duelistOne = duelist
-        return this.duelistOne
-      } else {
-        while (duelist === this.duelistTwo) {
-          duelist = this.duelistRandomizer(duelists)
-        }
-        return this.duelistOne
+      if (Object.keys(this.duelistOne).length > 0) {
+        this.duelistOne = {}
       }
+
+      setTimeout(() => {
+        if (duelist !== this.duelistTwo && Object.keys(duelist).length > 0) {
+          this.duelistOne = duelist
+          return this.duelistOne
+        } else {
+          return this.getDuelistOne(duelists)
+        }
+      }, 250)
     },
 
     getDeckDuelistOne(decks) {
@@ -234,17 +237,21 @@ export default {
     },
 
     getDuelistTwo(duelists) {
-      let duelist = this.duelistRandomizer(duelists)
+      const duelist = this.duelistRandomizer(duelists)
 
-      if (duelist !== this.duelistOne) {
-        this.duelistTwo = duelist
-        return this.duelistTwo
-      } else {
-        while (duelist === this.duelistOne) {
-          duelist = this.duelistRandomizer(duelists)
-        }
-        return this.duelistTwo
+      if (Object.keys(this.duelistTwo).length > 0) {
+        this.duelistTwo = {}
       }
+
+      setTimeout(() => {
+        if (duelist !== this.duelistOne && Object.keys(duelist).length > 0) {
+          this.duelistTwo = duelist
+
+          return this.duelistTwo
+        } else {
+          return this.getDuelistTwo(duelists)
+        }
+      }, 250)
     },
 
     getDeckDuelistTwo(decks) {
