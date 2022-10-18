@@ -21,7 +21,7 @@
             <button
               class="btn btn-raised rounded-circle py-1 px-2 mx-2"
               :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
-              @click="getDuelistOne(duelists)"
+              @click="randomizeDuelistOne()"
             >
               <font-awesome-icon :icon="['fas', 'rotate']" />
             </button>
@@ -108,7 +108,7 @@
             <button
               class="btn btn-raised rounded-circle py-1 px-2 mx-2"
               :class="isDarkTheme ? 'btn-uv' : 'btn-crimson'"
-              @click="getDuelistTwo(duelists)"
+              @click="randomizeDuelistTwo()"
             >
               <font-awesome-icon :icon="['fas', 'rotate']" />
             </button>
@@ -203,55 +203,33 @@ export default {
     ...mapGetters(['isDarkTheme']),
   },
 
-  mounted() {
-    // this.getDuelistOne(this.duelists)
-    // this.getDuelistTwo(this.duelists)
-  },
-
   methods: {
     duelistRandomizer(duelists) {
       return duelists[Math.floor(Math.random() * duelists.length)]
     },
 
-    getDuelistOne(duelists) {
-      const duelist = this.duelistRandomizer(duelists)
+    getRandomAvaliableDuelist() {
+      const avaliableDuelists = this.duelists.filter(
+        (d) => d.id !== this.duelistOne.id && d.id !== this.duelistTwo.id
+      )
 
-      if (Object.keys(this.duelistOne).length > 0) {
-        this.duelistOne = {}
-      }
+      return this.duelistRandomizer(avaliableDuelists)
+    },
 
-      setTimeout(() => {
-        if (duelist !== this.duelistTwo && Object.keys(duelist).length > 0) {
-          this.duelistOne = duelist
-          return this.duelistOne
-        } else {
-          return this.getDuelistOne(duelists)
-        }
-      }, 250)
+    randomizeDuelistOne() {
+      this.duelistOne = this.getRandomAvaliableDuelist()
+      this.deckDuelistOne = {}
+    },
+
+    randomizeDuelistTwo() {
+      this.duelistTwo = this.getRandomAvaliableDuelist()
+      this.deckDuelistTwo = {}
     },
 
     getDeckDuelistOne(decks) {
       const randomDeck = decks[Math.floor(Math.random() * decks.length)]
       console.log(randomDeck)
       this.deckDuelistOne = randomDeck
-    },
-
-    getDuelistTwo(duelists) {
-      const duelist = this.duelistRandomizer(duelists)
-
-      if (Object.keys(this.duelistTwo).length > 0) {
-        this.duelistTwo = {}
-      }
-
-      setTimeout(() => {
-        if (duelist !== this.duelistOne && Object.keys(duelist).length > 0) {
-          this.duelistTwo = duelist
-
-          return this.duelistTwo
-        } else {
-          return this.getDuelistTwo(duelists)
-        }
-      }, 250)
     },
 
     getDeckDuelistTwo(decks) {
